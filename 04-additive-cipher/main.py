@@ -1,11 +1,18 @@
-# The additive cipher adds the key to each letter value modulo 26.
-text = input("Plaintext: ").upper()
+def encrypt(text, key):
+    result = ""
+    for letter in text.upper():
+        if "A" <= letter <= "Z":
+            value = ord(letter) - 65
+            result += chr((value + key) % 26 + 65)
+        else:
+            result += letter
+    return result
+
+def decrypt(text, key):
+    return encrypt(text, -key)
+
+plaintext = input("Plaintext: ")
 key = int(input("Additive key: ")) % 26
-ciphertext = ""
-for letter in text:
-    if "A" <= letter <= "Z":
-        value = ord(letter) - ord("A")
-        ciphertext += chr((value + key) % 26 + ord("A"))
-    else:
-        ciphertext += letter
+ciphertext = encrypt(plaintext, key)
 print("Ciphertext:", ciphertext)
+print("Decrypted:", decrypt(ciphertext, key))

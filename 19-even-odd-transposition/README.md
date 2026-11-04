@@ -4,7 +4,7 @@
 
 ## Idea
 
-Uses 1-based positions: Python slice text[1::2] selects positions 2,4,…; text[::2] selects 1,3,… . Thus EXAM becomes XMEA.
+Uses 1-based positions: characters in positions 2,4,… come first, followed by positions 1,3,… . For example, EXAM becomes XMEA.
 
 ## Run
 

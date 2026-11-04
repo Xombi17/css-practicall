@@ -4,7 +4,7 @@
 
 ## Idea
 
-Each letter moves forward by k places; modulo 26 wraps Z back to A. Other characters are preserved.
+Each letter shifts forward by key k modulo 26. The program uses an encrypt function and decrypts by applying the negative key; other characters are preserved.
 
 ## Run
 

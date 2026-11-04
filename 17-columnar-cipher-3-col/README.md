@@ -4,7 +4,7 @@
 
 ## Idea
 
-Same row-fill, column-read method as question 16, using three columns.
+Writes text across three columns and reads down each column. X pads an incomplete final row. The question specifies three columns but no key/permutation.
 
 ## Run
 

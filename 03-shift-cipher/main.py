@@ -1,10 +1,17 @@
-# A=0 through Z=25; shifting past Z wraps back to A.
-text = input("Plaintext: ").upper()
-shift = int(input("Shift: ")) % 26
-ciphertext = ""
-for letter in text:
-    if "A" <= letter <= "Z":
-        ciphertext += chr((ord(letter) - ord("A") + shift) % 26 + ord("A"))
-    else:
-        ciphertext += letter
+def encrypt(text, key):
+    result = ""
+    for letter in text.upper():
+        if "A" <= letter <= "Z":
+            result += chr((ord(letter) - 65 + key) % 26 + 65)
+        else:
+            result += letter
+    return result
+
+def decrypt(text, key):
+    return encrypt(text, -key)
+
+plaintext = input("Plaintext: ")
+key = int(input("Shift key: ")) % 26
+ciphertext = encrypt(plaintext, key)
 print("Ciphertext:", ciphertext)
+print("Decrypted:", decrypt(ciphertext, key))

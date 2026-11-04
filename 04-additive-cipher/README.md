@@ -4,7 +4,7 @@
 
 ## Idea
 
-The additive cipher adds key k to each letter number (A=0 … Z=25), modulo 26.
+Adds key k to each letter value (A=0 … Z=25) modulo 26. The program also decrypts by using the negative key.
 
 ## Run
 

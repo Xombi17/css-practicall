@@ -4,7 +4,7 @@
 
 ## Idea
 
-Writes the text across four columns, pads incomplete final rows with X, then reads each column top-to-bottom, left-to-right. No key/permutation is specified in the question.
+Writes text across four columns and reads down each column. X pads an incomplete final row. The program prompts for text; no key/permutation is specified in the question.
 
 ## Run
 

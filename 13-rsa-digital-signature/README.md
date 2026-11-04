@@ -4,7 +4,7 @@
 
 ## Idea
 
-Hashes the message with built-in SHA-256, reduces the result to this toy key’s range, signs with the private exponent and verifies with the public exponent. This is for learning only; real RSA signatures need secure padding and a vetted library.
+Hashes the message with SHA-256 using Python hashlib, reduces the digest modulo the toy RSA modulus, signs with the private exponent, and verifies with the public exponent. Real RSA signatures require secure padding and large keys; this is only a classroom example.
 
 ## Run
 
