@@ -4,7 +4,7 @@
 
 ## Idea
 
-Writes text across three columns and reads down each column. X pads an incomplete final row. The question specifies three columns but no key/permutation.
+Prompts for plaintext, column count (default 3), and column read order (default 1 2 3). Enter a permutation to change the read order. X pads the final row.
 
 ## Run
 

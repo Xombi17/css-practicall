@@ -4,7 +4,7 @@
 
 ## Idea
 
-Adds corresponding letter values modulo 26. A true one-time pad needs a random key as long as the message, used only once and kept secret.
+Enter a text key as letters, equal in length to the plaintext. For example, HELLO and CLASS are both five letters. The example implements the alphabet version with A=0 … Z=25.
 
 ## Run
 

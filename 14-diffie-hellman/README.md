@@ -4,7 +4,7 @@
 
 ## Idea
 
-Both participants exchange public values and independently compute the same g^(ab) mod p. Small classroom numbers are insecure in real systems.
+Prompts for public prime p, public base g, and Alice and Bob’s private numbers. It displays their public values and the matching shared keys.
 
 ## Run
 

@@ -4,7 +4,7 @@
 
 ## Idea
 
-Implements the three rules from the sheet and falls back to counting values coprime to n when those rules cannot derive the answer. This supports composite values such as 8. It follows the sheet’s stated convention φ(1)=0; the standard Euler totient convention is φ(1)=1, so confirm the expected convention with your instructor.
+Prompts for a positive integer, displays which handout rule was applied, and prints the result. For composite inputs not derivable by the first three rules, it shows a counting fallback. The handout says phi(1)=0; standard convention is phi(1)=1, so confirm with your instructor.
 
 ## Run
 

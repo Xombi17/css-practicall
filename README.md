@@ -1,6 +1,6 @@
 # CSS Cryptography and System Security Practicals
 
-Beginner study set for the 22 questions in the supplied practical sheet. Most programs prompt for values such as plaintext, keys, or file paths. Questions 10 and 15 keep their assigned plaintext and matrix fixed; question 20 runs a built-in safe local demonstration. Each numbered folder contains one self-contained program and a short explanation. Python programs use only the standard library; Q2, Q9, and Q13 use hashlib for SHA-256, MD5, and SHA-1 as needed. C is used for the two C-specific buffer examples.
+Beginner study set for the 22 questions in the supplied practical sheet. Most programs prompt for values such as plaintext, keys, or file paths. Questions 10 and 15 prompt for plaintext and use the supplied matrices; question 20 prompts for a login attempt against a temporary local database. Each numbered folder contains one self-contained program and a short explanation. Python programs use only the standard library; Q2, Q9, and Q13 use hashlib for SHA-256, MD5, and SHA-1 as needed. C is used for the two C-specific buffer examples.
 
 ## How to study
 

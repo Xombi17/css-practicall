@@ -4,7 +4,7 @@
 
 ## Idea
 
-Runs an automatic injection attempt against a temporary in-memory SQLite database, then repeats it with a parameterized query. The unsafe string-built query accepts the injected login; the safe query treats the input as data and rejects it. The demo prints the unsafe query so you can explain how it changed. It never connects to a real database.
+Prompts for username and password. Try username `' OR '1'='1' --` with any password: the unsafe query accepts it and the parameterized query rejects it. The database is temporary and exists only in memory.
 
 ## Run
 

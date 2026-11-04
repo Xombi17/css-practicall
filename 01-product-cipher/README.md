@@ -4,7 +4,7 @@
 
 ## Idea
 
-Uses a Caesar shift as the substitution stage, then reads a 4-column grid top-to-bottom as a simple transposition. Spaces are removed; X pads the grid.
+Uses a user-entered shift for substitution and a user-entered column count for transposition. X pads the final row.
 
 ## Run
 

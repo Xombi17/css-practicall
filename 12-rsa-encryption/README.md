@@ -4,7 +4,7 @@
 
 ## Idea
 
-Creates a tiny teaching RSA key from the two primes you enter, chooses e, computes d, and encrypts/decrypts one integer. Do not use small textbook RSA for real security.
+Prompts for two small primes, your public exponent e, and a numeric message. It calculates and displays the public key (e,n) and private key (d,n), then encrypts and decrypts the message.
 
 ## Run
 

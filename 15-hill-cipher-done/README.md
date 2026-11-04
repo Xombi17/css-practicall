@@ -4,7 +4,7 @@
 
 ## Idea
 
-Maps A=0 through Z=25, then multiplies each pair by the provided key matrix `[[5, 2], [3, 3]]` modulo 26. This matrix comes from the supplied ZIP; it was not visible in the original question sheet. Confirm it is the one your instructor expects.
+Prompts for an even-length A-Z plaintext. The supplied key matrix is [[5,2],[3,3]]; it multiplies each letter pair modulo 26. DONE is an example input, not a hardcoded plaintext.
 
 ## Run
 

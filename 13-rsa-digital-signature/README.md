@@ -4,7 +4,7 @@
 
 ## Idea
 
-Hashes the message with SHA-256 using Python hashlib, reduces the digest modulo the toy RSA modulus, signs with the private exponent, and verifies with the public exponent. Real RSA signatures require secure padding and large keys; this is only a classroom example.
+Prompts for two small primes, your public exponent e, and a text message. It displays both keys, signs the SHA-256 digest modulo the small RSA modulus, then verifies the signature. This is a classroom example, not secure production RSA.
 
 ## Run
 
