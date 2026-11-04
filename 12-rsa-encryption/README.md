@@ -1,11 +1,7 @@
-# 12. Rsa Encryption
+# 12. RSA public key cryptography
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for two distinct prime numbers, generates and displays RSA keys, then encrypts and decrypts a numeric message.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

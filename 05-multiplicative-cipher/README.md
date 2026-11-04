@@ -1,11 +1,7 @@
-# 05. Multiplicative Cipher
+# 05. Multiplicative cipher
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for text and key, checks the key is coprime with 26, and lets you choose encryption or decryption.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

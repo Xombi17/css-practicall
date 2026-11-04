@@ -1,11 +1,7 @@
-# 07. Vigenere Cipher
+# 07. Vigenere cipher
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for plaintext and keyword, then prints encrypted and decrypted text.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

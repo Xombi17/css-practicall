@@ -1,11 +1,7 @@
-# 01. Product Cipher
+# 01. Product cipher
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for text, a substitution key, and encryption/decryption choice. It uses four columns and the repository’s built-in column order.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

@@ -1,11 +1,7 @@
-# 08. Playfair Row Column
+# 08. Playfair cipher
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for plaintext and key. Implements pair preparation and all three Playfair rules, including the rectangle rule.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

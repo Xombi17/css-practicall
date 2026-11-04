@@ -1,11 +1,7 @@
-# 20. Sql Injection Demo
+# 20. SQL injection demonstration
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for username and password, shows the vulnerable query, and compares its result with a parameterized safe query against a temporary in-memory database.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

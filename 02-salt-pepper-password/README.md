@@ -1,11 +1,7 @@
-# 02. Salt Pepper Password
+# 02. Salt and pepper password protection
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for a password and re-entry. Generates a random salt, uses the example pepper stored in the source, and hashes with hashlib SHA-256.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

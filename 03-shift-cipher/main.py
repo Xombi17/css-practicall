@@ -1,30 +1,15 @@
-def shiftcipher(text , key , mode):
+def shift(text, key):
     result = ""
-    for char in text:
-        if char.isalpha():
-            char = char.upper()
-            p= ord(char)- ord("A")
-            if mode == "E":
-                c = ( p + key)%26
-            else:
-                c = (p - key)%26
-#chr: below block is used to convert alphabet into numeric value
-            result += chr(c+ ord("A"))
+    for ch in text:
+        if ch.isalpha():
+            base = ord('A') if ch.isupper() else ord('a')
+            result += chr((ord(ch) - base + key) % 26 + base)
         else:
-            result += char
+            result += ch
     return result
-
-text = input("enter your text:")
-key = int(input("enter your key:"))
-key = key%26
-print("1. encryption")
-print("2. decryption")
-choice = (input("enter your choice"))
-if choice == "1":
-    encrypted = shiftcipher(text , key , "E")
-    print("Encrypted Text is: ", encrypted)
-elif choice == "2":
-    decrypted = shiftcipher(text, key , 'D')
-    print("Decrypted Text is: " , decrypted)
-else:
-    print("Invalid choice")
+plain = input("Enter plaintext: ")
+key = int(input("Enter shift key: "))
+cipher = shift(plain, key)
+decrypted = shift(cipher, -key)
+print("Cipher text:", cipher)
+print("Decrypted  :", decrypted)

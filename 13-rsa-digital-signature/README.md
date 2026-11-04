@@ -1,11 +1,7 @@
-# 13. Rsa Digital Signature
+# 13. RSA digital signature
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Uses fixed RSA parameters, prompts for a text message, hashes it with hashlib SHA-256, signs and verifies it.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

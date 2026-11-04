@@ -1,21 +1,16 @@
-def vernamCipher(text,key):
-    result = ""
-    if len(text)!=len(key):
-        return None
-    for i in range(len(text)):
-        p = ord(text[i])
-        #k = ord(key[i % len(key)]) use this instead below if the key size and plaintext are not supposed to match
-        k = ord(key[i])
-        c = p ^ k
-        result += chr(c)
-    return result
+text = input("Enter plaintext: ").upper().replace(" ", "")
+key = input("Enter key: ").upper().replace(" ", "")
 
-text= input("enter the text:")
-key= input("enter the key:")
 if len(text) != len(key):
-    print("the k=length of the key and plaintext dont match")
+    print("Key length must be equal to text length")
 else:
-    encrypted = vernamCipher(text , key)
-    print("encryptedd text is: " ,repr(encrypted))
-    decrypted = vernamCipher(encrypted, key)
-    print  ("decrypted text is: ", repr(decrypted))
+    cipher = ""
+
+    for i in range(len(text)):
+        p = ord(text[i]) - 65
+        k = ord(key[i]) - 65
+        c = (p + k) % 26
+        cipher += chr(c + 65)
+
+    print("Ciphertext:", cipher)
+    

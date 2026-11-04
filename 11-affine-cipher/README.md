@@ -1,11 +1,7 @@
-# 11. Affine Cipher
+# 11. Affine cipher
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for plaintext and keys a,b, then prints encrypted and decrypted text. Choose a coprime with 26.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

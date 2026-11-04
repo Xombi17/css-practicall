@@ -1,30 +1,28 @@
-import math
-
-# Function to calculate Euler's Totient Function
-def eulerTotient(n):
-    # Rule 1: If n is 1
+def phi(n):
     if n == 1:
-        return 1
-    # Rule 2: If n is prime
-    isPrime = True
-    for i in range(2, int(math.sqrt(n)) + 1):
-        if n % i == 0:
-            isPrime = False
-            break
-    if isPrime:
-        return n - 1
-    # Rule 3: Find two coprime factors
-    for m in range(2, n):
-        if n % m == 0:
-            p = n // m
-            # Check whether m and p are coprime
-            if math.gcd(m, p) == 1:
-                return eulerTotient(m) * eulerTotient(p)
-    return None
+        return 0
 
-n = int(input("Enter a number: "))
-if n <= 0:
-    print("Enter a positive integer.")
+    result = n
+    p = 2
+
+    while p * p <= n:
+        if n % p == 0:
+            while n % p == 0:
+                n //= p
+
+            result -= result // p
+
+        p += 1
+
+    if n > 1:
+        result -= result // n
+
+    return result
+
+
+number = int(input("Enter a number: "))
+
+if number < 1:
+    print("Enter a positive number")
 else:
-    result = eulerTotient(n)
-    print("Euler Totient Value:", result)
+    print("Euler Totient:", phi(number))

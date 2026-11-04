@@ -1,11 +1,7 @@
-# 19. Even Odd Transposition
+# 19. Even/odd position transposition
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for plaintext and puts even-numbered positions before odd-numbered positions.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

@@ -1,11 +1,7 @@
-# 04. Additive Cipher
+# 04. Additive cipher
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for plaintext and additive key, then prints encrypted and decrypted text.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

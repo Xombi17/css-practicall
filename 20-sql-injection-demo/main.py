@@ -1,66 +1,41 @@
-# SQL Injection Attack Demonstration
+
 import sqlite3
 
-# Create an in-memory database
-conn = sqlite3.connect(":memory:")
-cursor = conn.cursor()
+# set up a small in-memory database with one user
+db = sqlite3.connect(":memory:")
+cur = db.cursor()
+cur.execute("CREATE TABLE users (username TEXT, password TEXT)")
+cur.execute("INSERT INTO users VALUES ('admin', 'secret123')")
+db.commit()
 
-# Create users table
-cursor.execute("""
-CREATE TABLE users (
-    username TEXT,
-    password TEXT
-)
-""")
+def login_unsafe(username, password):
+    # BAD: query is built by joining strings -> injectable
+    query = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'"
+    print("Query sent:", query)
+    cur.execute(query)
+    return cur.fetchall()
 
-# Insert sample users
-cursor.execute(
-    "INSERT INTO users VALUES (?, ?)",
-    ("admin", "admin123")
-)
-cursor.execute(
-    "INSERT INTO users VALUES (?, ?)",
-    ("user", "user123")
-)
-conn.commit()
-print("================================")
-print("     SQL INJECTION DEMO")
-print("================================")
+def login_safe(username, password):
+    # GOOD: placeholders (?), input is treated as data, not SQL
+    cur.execute("SELECT * FROM users WHERE username=? AND password=?", (username, password))
+    return cur.fetchall()
 
-# Get login details
-username = input("Enter username: ")
-password = input("Enter password: ")
+attacker_user = "' OR '1'='1' --"
+attacker_pass = "anything"
 
-# Vulnerable SQL query
-query = (
-    "SELECT * FROM users WHERE username = '"
-    + username
-    + "' AND password = '"
-    + password
-    + "'"
-)
-print("\nVulnerable Query:")
-print(query)
-
-# Execute vulnerable query
-cursor.execute(query)
-result = cursor.fetchone()
-if result:
-    print("\nVulnerable Login: Successful!")
+print("=== Attack on the UNSAFE login ===")
+rows = login_unsafe(attacker_user, attacker_pass)
+if rows:
+    print("Logged in WITHOUT a valid password! Rows returned:", rows)
 else:
-    print("\nVulnerable Login: Failed!")
+    print("Login failed")
 
-# Secure SQL query using parameters
-safeQuery = """
-SELECT * FROM users
-WHERE username = ? AND password = ?
-"""
-cursor.execute(safeQuery, (username, password))
-safeResult = cursor.fetchone()
-if safeResult:
-    print("Secure Login: Successful!")
+print()
+print("=== Same attack on the SAFE login ===")
+rows = login_safe(attacker_user, attacker_pass)
+if rows:
+    print("Logged in:", rows)
 else:
-    print("Secure Login: Failed!")
+    print("Login blocked - injection did not work")
 
-# Close database connection
-conn.close()
+db.close()

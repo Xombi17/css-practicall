@@ -1,40 +1,21 @@
-def modinverse(key):
-    for i in range(1, 26):
-        if (key * i) % 26 == 1:
-            return i
-    return None
-
-def mmultiplicativeCipher(text, key, mode):
+def inverse(a, m):
+    for x in range(1, m):
+        if (a*x) % m == 1:
+            return x
+def cipher(text, key, decrypt=False):
     result = ""
-    inverse = modinverse(key)
-    for char in text:
-        if char.isalpha():
-            char = char.upper()
-            p = ord(char) - ord("A")
-            if mode == "E":
-                c = (p * key) % 26
-            else:
-                c = (p * inverse) % 26
-            result += chr(c + ord("A"))
+    if decrypt:
+        key = inverse(key, 26)
+    for ch in text.upper():
+        if ch.isalpha():
+            num = ord(ch) - 65
+            result += chr((num * key) % 26 + 65)
         else:
-            result += char
+            result += ch
     return result
-
-text = input("Enter the text: ")
-key = int(input("Enter the key: "))
-key = key % 26
-inverse = modinverse(key)
-if inverse is None:
-    print("Invalid key! Enter a key coprime with 26.")
-else:
-    print("1. Encryption")
-    print("2. Decryption")
-    choice = input("Enter your choice: ")
-    if choice == "1":
-        encryption = mmultiplicativeCipher(text, key, "E")
-        print("Encrypted text:", encryption)
-    elif choice == "2":
-        decryption = mmultiplicativeCipher(text, key, "D")
-        print("Decrypted text:", decryption)
-    else:
-        print("Invalid choice")
+plain = input("Enter plaintext: ")
+key = int(input("Enter key (coprime with 26): "))
+encrypted = cipher(plain, key)
+print("Cipher text:", encrypted)
+decrypted = cipher(encrypted, key, True)
+print("Decrypted  :", decrypted)

@@ -1,36 +1,51 @@
-# Cryptography and System Security Practicals
+# CSS Practical Study
 
-This folder now uses the implementations from [shreyshNair/Cryptographic-codes](https://github.com/shreyshNair/Cryptographic-codes). Each practical folder contains the linked program and a short note about its inputs and behavior. Run a Python practical with `python main.py` from that folder.
+The programs below are copied verbatim from [AnushkaKedare/css-pracs](https://github.com/AnushkaKedare/css-pracs). The source repository uses Python for Q1–Q20 and C for Q21–Q22.
 
-## Practical index
+## Practicals
 
-| No. | Topic | Language |
-|---:|---|---|
-| 1 | Product cipher | Python |
-| 2 | Salt and pepper password protection | Python |
-| 3 | Shift cipher | Python |
-| 4 | Additive cipher | Python |
-| 5 | Multiplicative cipher | Python |
-| 6 | Vernam cipher | Python |
-| 7 | Vigenere cipher | Python |
-| 8 | Playfair cipher | Python |
-| 9 | MD5 and SHA-1 comparison | Python |
-| 10 | Hill cipher: DIAL | Python |
-| 11 | Affine cipher | Python |
-| 12 | RSA encryption | Python |
-| 13 | RSA digital signature | Python |
-| 14 | Diffie–Hellman exchange | Python |
-| 15 | Hill cipher: DONE | Python |
-| 16 | Columnar transposition: 4 columns | Python |
-| 17 | Rail Fence: 3 rails | Python |
-| 18 | Euler totient | Python |
-| 19 | Even/odd transposition | Python |
-| 20 | SQL injection demo | Python |
-| 21 | Diffie–Hellman man-in-the-middle demo | Python |
-| 22 | Buffer overflow size demo | Python |
+| No. | Topic | Folder | Language |
+|---:|---|---|---|
+| 1 | Product cipher | `01-product-cipher` | Python |
+| 2 | Salt and pepper password protection | `02-salt-pepper-password` | Python |
+| 3 | Shift cipher | `03-shift-cipher` | Python |
+| 4 | Additive cipher | `04-additive-cipher` | Python |
+| 5 | Multiplicative cipher | `05-multiplicative-cipher` | Python |
+| 6 | Vernam cipher (one-time pad) | `06-vernam-one-time-pad` | Python |
+| 7 | Vigenere cipher | `07-vigenere-cipher` | Python |
+| 8 | Playfair cipher | `08-playfair-row-column` | Python |
+| 9 | MD5 vs SHA-1 speed | `09-md5-sha1-timing` | Python |
+| 10 | Hill cipher: DIAL | `10-hill-cipher-dial` | Python |
+| 11 | Affine cipher | `11-affine-cipher` | Python |
+| 12 | RSA public key cryptography | `12-rsa-encryption` | Python |
+| 13 | RSA digital signature | `13-rsa-digital-signature` | Python |
+| 14 | Diffie-Hellman key exchange | `14-diffie-hellman` | Python |
+| 15 | Hill cipher: DONE | `15-hill-cipher-done` | Python |
+| 16 | Columnar transposition: 4 columns | `16-columnar-transposition` | Python |
+| 17 | Columnar transposition: 3 columns | `17-columnar-transposition-3-col` | Python |
+| 18 | Euler totient function | `18-totient-rules` | Python |
+| 19 | Even/odd position transposition | `19-even-odd-transposition` | Python |
+| 20 | SQL injection demonstration | `20-sql-injection-demo` | Python |
+| 21 | Buffer overflow: gets and strcpy | `21-overflow-gets-strcpy` | C |
+| 22 | Buffer overflow: strcat and sprintf | `22-overflow-strcat-sprintf` | C |
 
-## Check against your practical sheet
+## Run a practical
 
-The linked repository’s Q17 is Rail Fence, while your sheet asks for a 3-column cipher. Its Q21 is a Diffie–Hellman man-in-the-middle demo, while your sheet asks for `gets()`/`strcpy()`. Its Q22 is a Python buffer-size simulation, while your sheet asks for `strcat()`/`sprintf()` in C. The repository’s Q17 program also contains errors in its encryption/decryption calls. Check these differences with your instructor before relying on the reference set for the exam.
+For Python, enter its folder and run:
 
-Some reference programs use fixed demonstration values; each practical README points those out. Q9 requires an existing `sample.txt` in its run folder. The security demonstrations are educational examples.
+```sh
+python3 main.py
+```
+
+Q9 also includes the sample 1 KB file from the source repository.
+
+For C, enter the practical folder and compile:
+
+```sh
+gcc -std=gnu89 -w main.c -o main
+./main
+```
+
+Q21–Q22 contain the original unsafe C buffer examples. They are educational samples; do not run them with sensitive data or outside a disposable local environment.
+
+Source snapshot: `23ac9eee2285a63dcded7c694f6eb5b11c3fbdc9`.

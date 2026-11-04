@@ -1,11 +1,7 @@
-# 10. Hill Cipher Dial
+# 10. Hill cipher: DIAL
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for plaintext, pads an odd-length message with `X`, and encrypts with the fixed matrix `[[3,3],[2,5]]`.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

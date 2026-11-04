@@ -1,11 +1,7 @@
-# 14. Diffie Hellman
+# 14. Diffie-Hellman key exchange
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for public values `p` and `g` and Alice and Bob's private numbers, then displays both shared keys.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

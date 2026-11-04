@@ -1,11 +1,7 @@
-# 06. Vernam One Time Pad
+# 06. Vernam cipher (one-time pad)
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for text and key. The key must be the same length as the text; XOR is applied character by character, then applied again to recover the text.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

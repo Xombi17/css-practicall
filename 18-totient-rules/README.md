@@ -1,11 +1,7 @@
-# 18. Totient Rules
+# 18. Euler totient function
 
 **Language:** Python
 
-## Idea
+Source program copied verbatim from the linked repository.
 
-Prompts for a number and applies the three listed totient rules. It prints the result or None if the rules cannot derive it.
-
-## Run
-
-Run with `python main.py`.
+Run from this folder: `python3 main.py`.

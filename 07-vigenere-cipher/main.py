@@ -1,36 +1,26 @@
-def vigenereCipher(text, key, mode):
+def vigenere(text, keyword, decrypt=False):
     result = ""
+    keyword = keyword.upper()
     j = 0
-    key = key.upper()
-    for char in text:
-        if char.isalpha():
-            char = char.upper()
-            p = ord(char) - ord("A")
-            #different calculation for key
-            k = ord(key[j % len(key)]) - ord("A")
-            if mode == "E":
-                c = (p + k) % 26
+    for ch in text.upper():
+        if ch.isalpha():
+            p = ord(ch) - 65
+            k = ord(keyword[j % len(keyword)]) - 65
+            if decrypt:
+                value = (p - k) % 26
             else:
-                c = (p - k) % 26
-            result += chr(c + ord("A"))
+                value = (p + k) % 26
+
+            result += chr(value + 65)
             j += 1
         else:
-            result += char
+            result += ch
+
     return result
 
-text = input("Enter the text: ")
-key = input("Enter the key: ")
-if len(key) == 0 or not key.isalpha():
-    print("Invalid key! Enter alphabets only.")
-else:
-    print("1. Encryption")
-    print("2. Decryption")
-    choice = input("Enter your choice: ")
-    if choice == "1":
-        encrypted = vigenereCipher(text, key, "E")
-        print("Encrypted text:", encrypted)
-    elif choice == "2":
-        decrypted = vigenereCipher(text, key, "D")
-        print("Decrypted text:", decrypted)
-    else:
-        print("Invalid choice")
+plain = input("Enter plaintext: ")
+keyword = input("Enter keyword: ")
+cipher = vigenere(plain, keyword)
+print("Cipher text:", cipher)
+decrypted = vigenere(cipher, keyword, True)
+print("Decrypted  :", decrypted)
