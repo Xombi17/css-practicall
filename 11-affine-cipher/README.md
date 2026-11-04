@@ -1,10 +1,10 @@
-# 11. Affine cipher
+# 11. Affine Cipher
 
 **Language:** Python
 
 ## Idea
 
-Applies E(x)=(a×x+b) mod 26. The multiplier a must be coprime with 26.
+Prompts for plaintext and keys a,b, then prints encrypted and decrypted text. Choose a coprime with 26.
 
 ## Run
 

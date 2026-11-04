@@ -1,10 +1,10 @@
-# 03. Shift cipher
+# 03. Shift Cipher
 
 **Language:** Python
 
 ## Idea
 
-Each letter shifts forward by key k modulo 26. The program uses an encrypt function and decrypts by applying the negative key; other characters are preserved.
+Prompts for plaintext and shift key, then prints encrypted and decrypted text.
 
 ## Run
 

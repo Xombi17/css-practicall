@@ -1,10 +1,10 @@
-# 07. Vigenere cipher
+# 07. Vigenere Cipher
 
 **Language:** Python
 
 ## Idea
 
-Repeats the keyword to match message letters, then adds each key letter modulo 26. The program also decrypts using the inverse shifts; spaces and punctuation stay in place.
+Prompts for plaintext and keyword, then prints encrypted and decrypted text.
 
 ## Run
 

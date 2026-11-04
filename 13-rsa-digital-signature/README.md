@@ -1,10 +1,10 @@
-# 13. RSA digital signature (toy)
+# 13. Rsa Digital Signature
 
 **Language:** Python
 
 ## Idea
 
-Prompts for two small primes, your public exponent e, and a text message. It displays both keys, signs the SHA-256 digest modulo the small RSA modulus, then verifies the signature. This is a classroom example, not secure production RSA.
+Uses fixed RSA parameters, prompts for a text message, hashes it with hashlib SHA-256, signs and verifies it.
 
 ## Run
 

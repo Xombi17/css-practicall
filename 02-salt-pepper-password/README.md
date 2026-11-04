@@ -1,10 +1,10 @@
-# 02. Salt and pepper password protection
+# 02. Salt Pepper Password
 
 **Language:** Python
 
 ## Idea
 
-Uses only Python standard-library tools. Salt is unique and can be stored; pepper is a separate secret that must be kept outside the stored record. This short classroom example is not a password-storage recommendation; production systems should use a password-hashing algorithm such as Argon2/bcrypt/scrypt.
+Prompts for a password and re-entry. Generates a random salt, uses the example pepper stored in the source, and hashes with hashlib SHA-256.
 
 ## Run
 

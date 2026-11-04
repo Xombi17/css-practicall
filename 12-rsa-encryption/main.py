@@ -1,27 +1,87 @@
-import math
 
-def is_prime(number):
-    return number > 1 and all(number % divisor for divisor in range(2, int(number ** 0.5) + 1))
+# Function to find GCD
+def gcd(a, b):
 
-# RSA public key is (e, n); private key is (d, n).
-p, q = map(int, input("Enter two small prime numbers p and q (example: 61 53): ").split())
-if p == q or not is_prime(p) or not is_prime(q):
-    raise ValueError("Enter two different prime numbers")
-n = p * q
-phi = (p - 1) * (q - 1)
-e_text = input(f"Public exponent e (press Enter to find one; 1 < e < {phi}): ").strip()
-e = int(e_text) if e_text else next((candidate for candidate in range(2, phi) if math.gcd(candidate, phi) == 1), None)
-if e is None:
-    raise ValueError("No public exponent exists for these primes; choose different primes")
-if not 1 < e < phi or math.gcd(e, phi) != 1:
-    raise ValueError("e must be between 1 and phi and coprime with phi")
-d = pow(e, -1, phi)
+    while b != 0:
+        a, b = b, a % b
 
-message = int(input(f"Message number (0 to {n - 1}): "))
-if not 0 <= message < n:
-    raise ValueError("Message must be between 0 and n-1")
-ciphertext = pow(message, e, n)
-print("Public key (e, n):", (e, n))
-print("Private key (d, n):", (d, n))
-print("Encrypted message:", ciphertext)
-print("Decrypted message:", pow(ciphertext, d, n))
+    return a
+
+
+# Function to find modular inverse
+def modInverse(e, phi):
+
+    for d in range(1, phi):
+
+        if (e * d) % phi == 1:
+            return d
+
+    return None
+
+
+# Function to check whether a number is prime
+def isPrime(n):
+
+    if n <= 1:
+        return False
+
+    for i in range(2, int(n ** 0.5) + 1):
+
+        if n % i == 0:
+            return False
+
+    return True
+
+
+# Enter two prime numbers
+p = int(input("Enter first prime number: "))
+q = int(input("Enter second prime number: "))
+
+# Validate prime numbers
+if not isPrime(p) or not isPrime(q) or p == q:
+
+    print("Enter two distinct prime numbers!")
+
+else:
+
+    # Calculate n
+    n = p * q
+
+    # Calculate Euler's Totient
+    phi = (p - 1) * (q - 1)
+
+    # Select public exponent
+    e = 2
+
+    while e < phi:
+
+        if gcd(e, phi) == 1:
+            break
+
+        e += 1
+
+    # Calculate private exponent
+    d = modInverse(e, phi)
+
+    # Display keys
+    print("\nPublic Key:", (e, n))
+    print("Private Key:", (d, n))
+
+    # Enter plaintext as a number
+    message = int(input("\nEnter message (number): "))
+
+    if message < 0 or message >= n:
+
+        print("Message must be between 0 and", n - 1)
+
+    else:
+
+        # Encryption
+        encrypted = pow(message, e, n)
+
+        # Decryption
+        decrypted = pow(encrypted, d, n)
+
+        print("\nEncrypted Message:", encrypted)
+        print("Decrypted Message:", decrypted)
+

@@ -1,10 +1,10 @@
-# 05. Multiplicative cipher
+# 05. Multiplicative Cipher
 
 **Language:** Python
 
 ## Idea
 
-Maps each letter x to (a×x) mod 26 and decrypts using the modular inverse of a. The key must be coprime to 26.
+Prompts for text and key, checks the key is coprime with 26, and lets you choose encryption or decryption.
 
 ## Run
 

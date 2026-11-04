@@ -1,10 +1,10 @@
-# 01. Product cipher: substitution + transposition
+# 01. Product Cipher
 
 **Language:** Python
 
 ## Idea
 
-Uses a user-entered shift, column count, and 1-based column read order. The last row may be short; no padding characters are added.
+Prompts for text, a substitution key, and encryption/decryption choice. It uses four columns and the repository’s built-in column order.
 
 ## Run
 

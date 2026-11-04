@@ -1,10 +1,10 @@
-# 04. Additive cipher
+# 04. Additive Cipher
 
 **Language:** Python
 
 ## Idea
 
-Adds key k to each letter value (A=0 … Z=25) modulo 26. The program also decrypts by using the negative key.
+Prompts for plaintext and additive key, then prints encrypted and decrypted text.
 
 ## Run
 

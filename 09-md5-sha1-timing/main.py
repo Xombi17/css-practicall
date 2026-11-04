@@ -1,21 +1,36 @@
+
 import hashlib
 import time
-
-# A hash is a fixed-length fingerprint of file bytes; it is not encryption.
-file_path = input("Path to the 1 KiB text file: ")
-with open(file_path, "rb") as file:
+#to generate 1kb file: python3 -c "open('sample.txt', 'w').write('A' * 1024)"
+# Open and read the text file in binary mode
+with open("sample.txt", "rb") as file:
     data = file.read()
-print(f"File size: {len(data)} bytes (1 KiB = 1024 bytes)")
-if len(data) != 1024:
-    print("Note: this file is not exactly 1 KiB, so the comparison uses its actual size.")
 
-results = []
-for name, hash_function in (("MD5", hashlib.md5), ("SHA-1", hashlib.sha1)):
-    start = time.perf_counter()
-    digest = hash_function(data).hexdigest()
-    elapsed = time.perf_counter() - start
-    results.append((name, elapsed))
-    print(f"\n{name} digest (the file fingerprint): {digest}")
-    print(f"Time to calculate it: {elapsed:.9f} seconds")
-print(f"\nFaster in this single run: {min(results, key=lambda item: item[1])[0]}")
-print("One run is noisy; repeat the experiment for a fairer timing comparison.")
+# Calculate MD5 hash
+start = time.time()
+
+md5_hash = hashlib.md5(data).hexdigest()
+
+md5_time = time.time() - start
+
+# Calculate SHA-1 hash
+start = time.time()
+
+sha1_hash = hashlib.sha1(data).hexdigest()
+
+sha1_time = time.time() - start
+
+# Display the results
+
+print("\nMD5 Hash:")
+print(md5_hash)
+
+print("\nSHA-1 Hash:")
+print(sha1_hash)
+
+print("\nExecution Time:")
+
+print("MD5 Time:", md5_time, "seconds")
+print("SHA-1 Time:", sha1_time, "seconds")
+
+

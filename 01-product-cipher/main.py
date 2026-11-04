@@ -1,23 +1,132 @@
-# Substitute letters, then read columns in the user-specified order (1-based).
-text = input("Plaintext (letters only): ").upper().replace(" ", "")
-shift = int(input("Substitution shift: ")) % 26
-columns = int(input("Number of transposition columns: "))
-if not text.isascii() or not text.isalpha():
-    raise ValueError("Use A-Z letters only")
-if columns < 1:
-    raise ValueError("Columns must be at least 1")
-order = [int(value) for value in input(f"Column read order (1 to {columns}, e.g. {' '.join(map(str, range(1, columns + 1)))}): ").split()]
-if sorted(order) != list(range(1, columns + 1)):
-    raise ValueError(f"Enter each column number from 1 to {columns} exactly once")
 
-substituted = ""
-for letter in text:
-    if "A" <= letter <= "Z":
-        substituted += chr((ord(letter) - 65 + shift) % 26 + 65)
-ciphertext = ""
-for column in order:
-    ciphertext += substituted[column - 1::columns]
+# Function to perform Additive Substitution Cipher
+def substitutionCipher(text, key, mode):
 
-print("After substitution:", substituted)
-print("Column read order:", order)
-print("Product cipher:", ciphertext)
+    result = ""
+
+    for char in text:
+
+        if char.isalpha():
+
+            char = char.upper()
+
+            # Convert character into a number
+            p = ord(char) - ord("A")
+
+            if mode == "E":
+                # Encryption
+                c = (p + key) % 26
+
+            else:
+                # Decryption
+                c = (p - key) % 26
+
+            # Convert number back into a character
+            result += chr(c + ord("A"))
+
+        else:
+            result += char
+
+    return result
+
+
+# Function to perform Columnar Transposition
+def transpositionCipher(text, columns, mode):
+
+    result = ""
+
+    if mode == "E":
+
+        # Read characters column by column
+        for col in range(columns):
+
+            for i in range(col, len(text), columns):
+                result += text[i]
+
+    else:
+
+        # Calculate number of rows
+        rows = (len(text) + columns - 1) // columns
+
+        # Calculate length of each column
+        column_lengths = []
+
+        for col in range(columns):
+            length = len(range(col, len(text), columns))
+            column_lengths.append(length)
+
+        # Divide ciphertext into columns
+        matrix = []
+        start = 0
+
+        for length in column_lengths:
+            matrix.append(text[start:start + length])
+            start += length
+
+        # Reconstruct original text row by row
+        for row in range(rows):
+
+            for col in range(columns):
+
+                if row < len(matrix[col]):
+                    result += matrix[col][row]
+
+    return result
+
+
+# Function to perform Product Cipher
+def productCipher(text, key, columns, mode):
+
+    if mode == "E":
+
+        # First perform substitution
+        substituted = substitutionCipher(text, key, "E")
+
+        # Then perform transposition
+        encrypted = transpositionCipher(substituted, columns, "E")
+
+        return encrypted
+
+    else:
+
+        # First reverse transposition
+        transposed = transpositionCipher(text, columns, "D")
+
+        # Then reverse substitution
+        decrypted = substitutionCipher(transposed, key, "D")
+
+        return decrypted
+
+
+
+
+text = input("Enter the text: ")
+
+key = int(input("Enter the substitution key: "))
+key = key % 26
+
+columns = 4
+
+print("\nNumber of columns:", columns)
+print("1. Encryption")
+print("2. Decryption")
+
+choice = input("Enter your choice: ")
+
+if choice == "1":
+
+    encrypted = productCipher(text, key, columns, "E")
+
+    print("Encrypted text:", encrypted)
+
+elif choice == "2":
+
+    decrypted = productCipher(text, key, columns, "D")
+
+    print("Decrypted text:", decrypted)
+
+else:
+
+    print("Invalid choice")
+
+

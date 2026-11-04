@@ -1,18 +1,35 @@
-def encrypt(text, key):
+def additiveCipher(text, key , mode):
     result = ""
-    for letter in text.upper():
-        if "A" <= letter <= "Z":
-            value = ord(letter) - 65
-            result += chr((value + key) % 26 + 65)
+    for char in text:
+        if char.isalpha():
+            char = char.upper()
+
+            p = ord(char) - ord("A")
+
+            if mode == "E":
+                c = (p + key)%26
+            else:
+                c = (p - key)%26
+
+            result += chr(c + ord("A"))
         else:
-            result += letter
+            result += char
     return result
 
-def decrypt(text, key):
-    return encrypt(text, -key)
+text=input("enter the text:")
+key= int(input("enter the key:"))
+key = key%26
 
-plaintext = input("Plaintext: ")
-key = int(input("Additive key: ")) % 26
-ciphertext = encrypt(plaintext, key)
-print("Ciphertext:", ciphertext)
-print("Decrypted:", decrypt(ciphertext, key))
+print("1. ecryption")
+print("2. decryption")
+
+choice = input("enter your choice")
+
+if choice == "1":
+    encryption = additiveCipher(text , key , "E")
+    print(encryption)
+elif choice == "2":
+    decryption = additiveCipher(text, key , "D")
+    print(decryption)
+else:
+    print("invalid choice")

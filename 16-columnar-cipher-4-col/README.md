@@ -1,10 +1,10 @@
-# 16. Simple columnar cipher: 4 columns
+# 16. Columnar Cipher 4 Col
 
 **Language:** Python
 
 ## Idea
 
-Prompts for plaintext, column count (default 4), and column read order (default 1 2 3 4). Enter a permutation such as 3 1 4 2 to change the read order. X pads the final row.
+Prompts for plaintext and applies four-column transposition in the fixed left-to-right column order.
 
 ## Run
 

@@ -1,10 +1,10 @@
-# 06. Vernam cipher (one-time pad)
+# 06. Vernam One Time Pad
 
 **Language:** Python
 
 ## Idea
 
-Enter a text key as letters, equal in length to the plaintext. For example, HELLO and CLASS are both five letters. The example implements the alphabet version with A=0 … Z=25.
+Prompts for text and key. The key must be the same length as the text; XOR is applied character by character, then applied again to recover the text.
 
 ## Run
 

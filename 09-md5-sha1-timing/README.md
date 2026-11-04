@@ -1,10 +1,10 @@
-# 09. Compare MD5 and SHA-1 speed
+# 09. Md5 Sha1 Timing
 
 **Language:** Python
 
 ## Idea
 
-Prompts for a file path, shows the number of bytes read, each fixed-length digest, and the time for each hash. It hashes identical bytes with Python's `hashlib.md5` and `hashlib.sha1`. Use exactly 1,024 bytes for the requested 1 KiB test. Timing one run is illustrative and does not establish which algorithm is generally faster.
+Reads the existing `sample.txt` in binary mode, hashes its bytes with hashlib MD5 and SHA-1, and prints both digests and timings. Create the file before running the program.
 
 ## Run
 

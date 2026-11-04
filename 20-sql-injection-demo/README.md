@@ -1,10 +1,10 @@
-# 20. SQL injection: local demonstration
+# 20. Sql Injection Demo
 
 **Language:** Python
 
 ## Idea
 
-Prompts for username and password. Try username `' OR '1'='1' --` with any password: the unsafe query accepts it and the parameterized query rejects it. The database is temporary and exists only in memory.
+Prompts for username and password, shows the vulnerable query, and compares its result with a parameterized safe query against a temporary in-memory database.
 
 ## Run
 
