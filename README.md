@@ -1,6 +1,6 @@
 # CSS Cryptography and System Security Practicals
 
-Beginner study set for the 22 questions in the supplied practical sheet. Most programs prompt for values such as plaintext, keys, or file paths. Questions 10 and 15 prompt for plaintext and use the supplied matrices; question 20 prompts for a login attempt against a temporary local database. Each numbered folder contains one self-contained program and a short explanation. Python programs use only the standard library; Q2, Q9, and Q13 use hashlib for SHA-256, MD5, and SHA-1 as needed. C is used for the two C-specific buffer examples.
+Beginner study set for the 22 questions in the supplied practical sheet. Most programs prompt for values such as plaintext, keys, or file paths. Questions 10 and 15 prompt for plaintext and key matrices; question 20 prompts for a login attempt against a temporary local database. Each numbered folder contains one self-contained program and a short explanation. Python programs use only the standard library; Q2, Q9, and Q13 use hashlib for SHA-256, MD5, and SHA-1 as needed. C is used for the two C-specific buffer examples.
 
 ## How to study
 
@@ -40,6 +40,6 @@ Beginner study set for the 22 questions in the supplied practical sheet. Most pr
 
 - The matrices are absent from the question sheet, but the supplied ZIP provides candidate keys for questions 10 and 15; these are now used in the programs and identified in their READMEs.
 - Questions 16 and 17 do not give a column read order/key; these use the basic left-to-right column order.
-- Question 18 uses the three listed totient rules and falls back to counting coprime values for other positive inputs. The sheet’s φ(1)=0 differs from the standard convention φ(1)=1.
+- Question 18 factors positive integers into prime powers and applies the prime-power and coprime-product totient rules. The sheet’s φ(1)=0 differs from the standard convention φ(1)=1.
 - The MD5/SHA-1 example expects a file path and reports its byte count; use a 1,024-byte file for the specified 1 KiB input.
 - Question 20 is a safe, local in-memory SQL example. The buffer programs intentionally contain unsafe C calls for lab study; do not use them with valuable data or on a connected system.

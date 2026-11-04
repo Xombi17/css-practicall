@@ -1,22 +1,35 @@
-# Implements the handout's phi(1)=0 rule, prime rule, and coprime product rule.
-import math
-
 def phi(n):
+    # Keep the worksheet's stated base case; standard references use phi(1)=1.
     if n == 1:
-        return 0, "Rule 1: phi(1) = 0"
-    if all(n % divisor for divisor in range(2, int(n ** 0.5) + 1)):
-        return n - 1, f"Rule 2: {n} is prime, so phi({n}) = {n}-1"
-    for m in range(2, n):
-        k = n // m
-        if n % m == 0 and math.gcd(m, k) == 1:
-            phi_m, step_m = phi(m)
-            phi_k, step_k = phi(k)
-            value = phi_m * phi_k
-            steps = f"Rule 3: {n}={m}x{k}, and gcd({m},{k})=1\n{step_m}\n{step_k}\nphi({n})={phi_m}x{phi_k}={value}"
-            return value, steps
-    # The first three rules do not cover every composite; count coprime values for those cases.
-    value = sum(1 for number in range(1, n) if math.gcd(number, n) == 1)
-    return value, f"Fallback: count numbers below {n} that are coprime to {n}"
+        return 0, "Rule 1 (worksheet): phi(1) = 0"
+
+    remaining = n
+    factors = []
+    divisor = 2
+    while divisor * divisor <= remaining:
+        if remaining % divisor == 0:
+            exponent = 0
+            while remaining % divisor == 0:
+                remaining //= divisor
+                exponent += 1
+            factors.append((divisor, exponent))
+        divisor += 1
+    if remaining > 1:
+        factors.append((remaining, 1))
+
+    prime_power_values = [prime ** (power - 1) * (prime - 1) for prime, power in factors]
+    value = 1
+    for part in prime_power_values:
+        value *= part
+    details = [f"Rule: phi(p^k) = p^(k-1)(p-1)"]
+    details.extend(f"phi({prime}^{power}) = {prime}^{power - 1}({prime}-1) = {part}"
+                   for (prime, power), part in zip(factors, prime_power_values))
+    if len(factors) > 1:
+        details.append("Rule: phi(ab) = phi(a)phi(b) when gcd(a,b)=1")
+        details.append(f"Distinct prime powers are coprime, so phi({n}) = {' x '.join(map(str, prime_power_values))} = {value}")
+    elif factors[0][1] == 1:
+        details[0] = f"Rule 2: {n} is prime, so phi({n}) = {n}-1 = {value}"
+    return value, "\n".join(details)
 
 number = int(input("Enter a positive integer: "))
 if number < 1:

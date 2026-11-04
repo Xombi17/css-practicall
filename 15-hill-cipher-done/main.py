@@ -1,5 +1,8 @@
-# Encrypts a user-entered text with the supplied 2x2 Hill key.
-key = [[5, 2], [3, 3]]
+# Encrypts user-entered text with a user-entered 2x2 Hill key.
+key_values = list(map(int, input("Enter the 2x2 key row by row (a b c d): ").split()))
+if len(key_values) != 4:
+    raise ValueError("Enter exactly four integer values for the 2x2 key")
+key = [key_values[:2], key_values[2:]]
 
 def encrypt(text):
     text = text.upper().replace(" ", "")

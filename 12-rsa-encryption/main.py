@@ -9,7 +9,10 @@ if p == q or not is_prime(p) or not is_prime(q):
     raise ValueError("Enter two different prime numbers")
 n = p * q
 phi = (p - 1) * (q - 1)
-e = int(input(f"Choose public exponent e coprime with {phi} (example: 17): "))
+e_text = input(f"Public exponent e (press Enter to find one; 1 < e < {phi}): ").strip()
+e = int(e_text) if e_text else next((candidate for candidate in range(2, phi) if math.gcd(candidate, phi) == 1), None)
+if e is None:
+    raise ValueError("No public exponent exists for these primes; choose different primes")
 if not 1 < e < phi or math.gcd(e, phi) != 1:
     raise ValueError("e must be between 1 and phi and coprime with phi")
 d = pow(e, -1, phi)

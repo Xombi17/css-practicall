@@ -4,7 +4,7 @@
 
 ## Idea
 
-Uses a user-entered shift for substitution and a user-entered column count for transposition. X pads the final row.
+Uses a user-entered shift, column count, and 1-based column read order. The last row may be short; no padding characters are added.
 
 ## Run
 

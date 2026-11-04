@@ -1,10 +1,10 @@
-# 18. First three totient rules
+# 18. Euler totient rules
 
 **Language:** Python
 
 ## Idea
 
-Prompts for a positive integer, displays which handout rule was applied, and prints the result. For composite inputs not derivable by the first three rules, it shows a counting fallback. The handout says phi(1)=0; standard convention is phi(1)=1, so confirm with your instructor.
+Prompts for a positive integer and factors it into prime powers. It applies phi(p^k)=p^(k-1)(p-1), then multiplies the results for coprime prime powers. The worksheet's stated phi(1)=0 is retained for that input; standard convention is phi(1)=1.
 
 ## Run
 

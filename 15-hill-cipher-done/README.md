@@ -4,7 +4,7 @@
 
 ## Idea
 
-Prompts for an even-length A-Z plaintext. The supplied key matrix is [[5,2],[3,3]]; it multiplies each letter pair modulo 26. DONE is an example input, not a hardcoded plaintext.
+Prompts for a 2×2 key matrix and an even-length A-Z plaintext, then multiplies each letter pair modulo 26. Enter the four key values row by row. DONE is an example input, not a hardcoded plaintext.
 
 ## Run
 
