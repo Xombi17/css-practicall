@@ -1,6 +1,4 @@
-
 # SQL Injection Attack Demonstration
-
 import sqlite3
 
 # Create an in-memory database
@@ -20,14 +18,11 @@ cursor.execute(
     "INSERT INTO users VALUES (?, ?)",
     ("admin", "admin123")
 )
-
 cursor.execute(
     "INSERT INTO users VALUES (?, ?)",
     ("user", "user123")
 )
-
 conn.commit()
-
 print("================================")
 print("     SQL INJECTION DEMO")
 print("================================")
@@ -44,14 +39,12 @@ query = (
     + password
     + "'"
 )
-
 print("\nVulnerable Query:")
 print(query)
 
 # Execute vulnerable query
 cursor.execute(query)
 result = cursor.fetchone()
-
 if result:
     print("\nVulnerable Login: Successful!")
 else:
@@ -62,10 +55,8 @@ safeQuery = """
 SELECT * FROM users
 WHERE username = ? AND password = ?
 """
-
 cursor.execute(safeQuery, (username, password))
 safeResult = cursor.fetchone()
-
 if safeResult:
     print("Secure Login: Successful!")
 else:
@@ -73,4 +64,3 @@ else:
 
 # Close database connection
 conn.close()
-

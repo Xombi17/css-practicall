@@ -1,4 +1,3 @@
-
 # Man-in-the-Middle Attack in Diffie-Hellman
 
 # Public values
@@ -42,16 +41,12 @@ keyAttackerBob = pow(B, y, p)
 print("================================")
 print("     DIFFIE-HELLMAN MITM ATTACK")
 print("================================")
-
 print("Alice's Public Key:", A)
 print("Bob's Public Key:", B)
-
 print("\nAttacker's Public Key for Alice:", X)
 print("Attacker's Public Key for Bob:", Y)
-
 print("\nAlice's Shared Key:", keyAlice)
 print("Attacker's Key with Alice:", keyAttackerAlice)
-
 print("\nBob's Shared Key:", keyBob)
 print("Attacker's Key with Bob:", keyAttackerBob)
 
@@ -60,5 +55,4 @@ if keyAlice == keyAttackerAlice and keyBob == keyAttackerBob:
     print("\nMITM Attack Successful!")
 else:
     print("\nMITM Attack Failed!")
-
 print("================================")

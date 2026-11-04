@@ -1,4 +1,3 @@
-
 # Diffie-Hellman Key Exchange
 
 # Public values
@@ -24,18 +23,13 @@ keyAlice = pow(B, a, p)
 keyBob = pow(A, b, p)
 
 # Display results
-
 print("Alice's Public Key:", A)
 print("Bob's Public Key:", B)
-
 print("Alice's Shared Key:", keyAlice)
 print("Bob's Shared Key:", keyBob)
 
 # Verify whether both keys are equal
 if keyAlice == keyBob:
     print("\nShared secret established successfully!")
-
 else:
     print("\nKey exchange failed!")
-
-
