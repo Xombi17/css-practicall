@@ -1,3 +1,10 @@
-text=input("Plaintext: ").upper()
-k=int(input("Shift: "))%26
-print("Ciphertext:","".join(chr((ord(c)-65+k)%26+65) if c.isalpha() else c for c in text))
+# A=0 through Z=25; shifting past Z wraps back to A.
+text = input("Plaintext: ").upper()
+shift = int(input("Shift: ")) % 26
+ciphertext = ""
+for letter in text:
+    if "A" <= letter <= "Z":
+        ciphertext += chr((ord(letter) - ord("A") + shift) % 26 + ord("A"))
+    else:
+        ciphertext += letter
+print("Ciphertext:", ciphertext)

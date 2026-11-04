@@ -1,3 +1,11 @@
-text=input("Plaintext: ").upper()
-k=int(input("Additive key: "))%26
-print("Ciphertext:","".join(chr((ord(c)-65+k)%26+65) if c.isalpha() else c for c in text))
+# The additive cipher adds the key to each letter value modulo 26.
+text = input("Plaintext: ").upper()
+key = int(input("Additive key: ")) % 26
+ciphertext = ""
+for letter in text:
+    if "A" <= letter <= "Z":
+        value = ord(letter) - ord("A")
+        ciphertext += chr((value + key) % 26 + ord("A"))
+    else:
+        ciphertext += letter
+print("Ciphertext:", ciphertext)

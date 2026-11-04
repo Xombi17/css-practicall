@@ -1,11 +1,20 @@
-text=input("Plaintext: ").upper()
-key=input("Keyword (letters only): ").upper()
-if not key.isalpha(): raise ValueError("Keyword must contain letters only")
-letters=[c for c in text if c.isalpha()]
-if not letters: raise ValueError("Enter at least one letter")
-ks=(key*(len(letters)//len(key)+1))[:len(letters)]
-i=0; out=""
-for c in text:
-    if c.isalpha(): out+=chr((ord(c)-65+ord(ks[i])-65)%26+65); i+=1
-    else: out+=c
-print("Ciphertext:",out)
+# Repeat the keyword and add its letter values to the plaintext values.
+text = input("Plaintext: ").upper()
+key = input("Keyword (letters only): ").upper()
+if not key or not all("A" <= letter <= "Z" for letter in key):
+    raise ValueError("Enter a keyword containing A-Z letters only")
+letters = [letter for letter in text if "A" <= letter <= "Z"]
+if not letters:
+    raise ValueError("Enter at least one letter")
+repeated_key = (key * (len(letters) // len(key) + 1))[:len(letters)]
+
+ciphertext = ""
+key_position = 0
+for letter in text:
+    if "A" <= letter <= "Z":
+        value = ord(letter) - 65 + ord(repeated_key[key_position]) - 65
+        ciphertext += chr(value % 26 + 65)
+        key_position += 1
+    else:
+        ciphertext += letter
+print("Ciphertext:", ciphertext)

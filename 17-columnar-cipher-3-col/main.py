@@ -1,3 +1,8 @@
-text=input("Plaintext: ").upper().replace(" ","")
-cols=3; text+="X"*((-len(text))%cols)
-print("Ciphertext:","".join(text[i::cols] for i in range(cols)))
+# Fill the grid across rows, then read each column top to bottom.
+text = input("Plaintext: ").upper().replace(" ", "")
+columns = 3
+text += "X" * (-len(text) % columns)
+ciphertext = ""
+for column in range(columns):
+    ciphertext += text[column::columns]
+print("Ciphertext:", ciphertext)
